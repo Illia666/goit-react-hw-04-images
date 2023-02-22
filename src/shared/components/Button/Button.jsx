@@ -1,25 +1,17 @@
 import PropTypes from 'prop-types';
+import { Button } from './Button.styled';
 
-import styles from './button.module.scss';
-
-const Button = ({ caption, onClick }) => {
+const LoadMoreBtn = ({ onClick, type }) => {
   return (
-    <div className={styles.container}>
-      <button type="button" className={styles.button} onClick={onClick}>
-        {caption}
-      </button>
-    </div>
+    <Button type={type} onClick={onClick}>
+      Load more
+    </Button>
   );
 };
 
-export default Button;
+export default LoadMoreBtn;
 
-Button.defaultProps = {
-  caption: '',
-  onClick: {},
-};
-
-Button.propTypes = {
-  caption: PropTypes.string,
-  onClick: PropTypes.func,
+LoadMoreBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
 };
